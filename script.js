@@ -82,7 +82,7 @@ logo.addEventListener("click", () => {
 
         const password = prompt("Developer Password");
 
-        if (password === "mattmurdock") {
+        if (password === "ramahb0w4") {
 
             devMenu.style.display = "block";
 
