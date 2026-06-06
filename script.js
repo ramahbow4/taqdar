@@ -30,8 +30,8 @@ startBtn.addEventListener("click", () => {
 
 // How To Play
 howBtn.addEventListener("click", () => {
-    alert(
-`HOW TO PLAY
+    showScreen("howScreen");
+});
 
 1. Create 2-10 teams.
 
