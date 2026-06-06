@@ -6,127 +6,101 @@
 <title>تقدر؟</title>
 <link rel="stylesheet" href="style.css">
 </head>
-
 <body>
-
 <div class="container">
-
-    <!-- Logo -->
-    <img src="logo.png" id="logo" class="logo" alt="Taqdar Logo">
-
-    <!-- Home Screen -->
-    <div id="homeScreen" class="screen active">
-
-        <h1>تقدر؟</h1>
-
-        <p class="subtitle">
-            The Ultimate Game Show Experience
-        </p>
-
-        <button id="startBtn">
-            Start Game
-        </button>
-
-        <button id="howBtn">
-            How To Play
-        </button>
-
-    </div>
-
-    <!-- Team Screen -->
-    <div id="teamScreen" class="screen">
-
-        <h2>Team Setup</h2>
-
-        <p>
-            Team screen coming soon...
-        </p>
-
-    </div>
-
-    <!-- Power-Up Screen -->
-    <div id="powerupScreen" class="screen">
-
-        <h2>Power-Ups</h2>
-
-        <p>
-            Power-up screen coming soon...
-        </p>
-
-    </div>
-
-    <!-- Category Screen -->
-    <div id="categoryScreen" class="screen">
-
-        <h2>Categories</h2>
-
-        <p>
-            Category screen coming soon...
-        </p>
-
-    </div>
-
-    <!-- Board Screen -->
-    <div id="boardScreen" class="screen">
-
-        <h2>Board</h2>
-
-        <p>
-            Board screen coming soon...
-        </p>
-
-    </div>
-
-    <!-- Question Screen -->
-    <div id="questionScreen" class="screen">
-
-        <h2>Question</h2>
-
-        <p>
-            Question screen coming soon...
-        </p>
-
-    </div>
-
-    <!-- Answer Screen -->
-    <div id="answerScreen" class="screen">
-
-        <h2>Answer</h2>
-
-        <p>
-            Answer screen coming soon...
-        </p>
-
-    </div>
-
-    <!-- Winner Screen -->
-    <div id="winnerScreen" class="screen">
-
-        <h2>Winner</h2>
-
-        <p>
-            Winner screen coming soon...
-        </p>
-
-    </div>
-
-    <!-- Hidden Developer Menu -->
-    <div id="devMenu">
-
-        <button onclick="showScreen('homeScreen')">Home</button>
-        <button onclick="showScreen('teamScreen')">Teams</button>
-        <button onclick="showScreen('powerupScreen')">Power-Ups</button>
-        <button onclick="showScreen('categoryScreen')">Categories</button>
-        <button onclick="showScreen('boardScreen')">Board</button>
-        <button onclick="showScreen('questionScreen')">Question</button>
-        <button onclick="showScreen('answerScreen')">Answer</button>
-        <button onclick="showScreen('winnerScreen')">Winner</button>
-
-    </div>
-
+<img src="logo.png" id="logo" class="logo" alt="Taqdar Logo">
+<!-- Home Screen -->
+<div id="homeScreen" class="screen active">
+    <h1>تقدر؟</h1>
+    <p class="subtitle">
+        The Ultimate Game Show Experience
+    </p>
+    <button id="startBtn">
+        Start Game
+    </button>
+    <button id="howBtn">
+        How To Play
+    </button>
 </div>
-
+<!-- How To Play Screen -->
+<div id="howScreen" class="screen">
+    <h2>How To Play</h2>
+    <p>1. Create 2–10 teams.</p>
+    <p>2. Each team chooses 3 power-ups.</p>
+    <p>3. Each team chooses 3 categories.</p>
+    <p>4. Duplicate categories are not allowed.</p>
+    <p>5. All selected categories create one shared board.</p>
+    <p>6. Teams take turns choosing questions.</p>
+    <p>7. The active team locks their answer first.</p>
+    <p>8. Other teams may answer, but cannot use a locked answer.</p>
+    <p>9. Any team with the correct answer earns the points.</p>
+    <p>10. Highest score wins.</p>
+    <button onclick="showScreen('homeScreen')">
+        Back
+    </button>
+</div>
+<!-- Team Screen -->
+<div id="teamScreen" class="screen">
+    <h2>Team Setup</h2>
+    <p>
+        Team screen coming soon...
+    </p>
+</div>
+<!-- Power-Up Screen -->
+<div id="powerupScreen" class="screen">
+    <h2>Power-Ups</h2>
+    <p>
+        Power-up screen coming soon...
+    </p>
+</div>
+<!-- Category Screen -->
+<div id="categoryScreen" class="screen">
+    <h2>Categories</h2>
+    <p>
+        Category screen coming soon...
+    </p>
+</div>
+<!-- Board Screen -->
+<div id="boardScreen" class="screen">
+    <h2>Board</h2>
+    <p>
+        Board screen coming soon...
+    </p>
+</div>
+<!-- Question Screen -->
+<div id="questionScreen" class="screen">
+    <h2>Question</h2>
+    <p>
+        Question screen coming soon...
+    </p>
+</div>
+<!-- Answer Screen -->
+<div id="answerScreen" class="screen">
+    <h2>Answer</h2>
+    <p>
+        Answer screen coming soon...
+    </p>
+</div>
+<!-- Winner Screen -->
+<div id="winnerScreen" class="screen">
+    <h2>Winner</h2>
+    <p>
+        Winner screen coming soon...
+    </p>
+</div>
+<!-- Hidden Developer Menu -->
+<div id="devMenu">
+    <button onclick="showScreen('homeScreen')">Home</button>
+    <button onclick="showScreen('howScreen')">How To Play</button>
+    <button onclick="showScreen('teamScreen')">Teams</button>
+    <button onclick="showScreen('powerupScreen')">Power-Ups</button>
+    <button onclick="showScreen('categoryScreen')">Categories</button>
+    <button onclick="showScreen('boardScreen')">Board</button>
+    <button onclick="showScreen('questionScreen')">Question</button>
+    <button onclick="showScreen('answerScreen')">Answer</button>
+    <button onclick="showScreen('winnerScreen')">Winner</button>
+</div>
+</div>
 <script src="script.js"></script>
-
 </body>
 </html>
