@@ -29,6 +29,7 @@ startBtn.addEventListener("click", () => {
 });
 
 howBtn.addEventListener("click", () => {
+    alert("How button clicked");
     showScreen("howScreen");
 });
 
