@@ -51,3 +51,14 @@ logo.addEventListener("click", () => {
         logoClicks = 0;
     }
 });
+function selectTeams(numberOfTeams){
+
+const container = document.getElementById("teamInputs");
+let html = "<h2>Enter Team Names</h2>";
+for(let i = 1; i <= numberOfTeams; i++){
+    html += `<input type="text" placeholder="Team ${i}">`;
+}
+html += `<button>Continue</button>`;
+container.innerHTML = html;
+
+}
