@@ -17,11 +17,11 @@ function showScreen(screenId) {
         screen.classList.add("active");
     }
 
-    if (screenId === "homeScreen") {
-        logo.style.display = "block";
-    } else {
-        logo.style.display = "none";
-    }
+if (screenId === "homeScreen") {
+    logo.style.visibility = "visible";
+} else {
+    logo.style.visibility = "hidden";
+}
 }
 
 startBtn.addEventListener("click", () => {
