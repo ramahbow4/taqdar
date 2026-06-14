@@ -1,7 +1,7 @@
-const logo = document.getElementById(“logo”);
-const startBtn = document.getElementById(“startBtn”);
-const howBtn = document.getElementById(“howBtn”);
-const devMenu = document.getElementById(“devMenu”);
+const logo = document.getElementById("logo");
+const startBtn = document.getElementById("startBtn");
+const howBtn = document.getElementById("howBtn");
+const devMenu = document.getElementById("devMenu");
 
 let logoClicks = 0;
 let teamNames = [];
@@ -26,15 +26,15 @@ window.scrollTo(0, 0);
 
 }
 
-startBtn.addEventListener(“click”, () => {
-showScreen(“teamScreen”);
+startBtn.addEventListener("click", () => {
+showScreen("teamScreen");
 });
 
-howBtn.addEventListener(“click”, () => {
-showScreen(“howScreen”);
+howBtn.addEventListener("click", () => {
+showScreen("howScreen");
 });
 
-logo.addEventListener(“click”, () => {
+logo.addEventListener("click", () => {
 
 logoClicks++;
 if (logoClicks >= 5) {
@@ -112,7 +112,7 @@ card.addEventListener("click", () => {
 const powerupContinue =
 document.getElementById(“powerupContinue”);
 
-powerupContinue.addEventListener(“click”, () => {
+powerupContinue.addEventListener("click", () => {
 
 const selected =
     document.querySelectorAll(".powerCard.selected");
