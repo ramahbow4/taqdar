@@ -57,9 +57,36 @@ function selectTeams(numberOfTeams){
 const container = document.getElementById("teamInputs");
 let html = "<h2>Enter Team Names</h2>";
 for(let i = 1; i <= numberOfTeams; i++){
-    html += `<input type="text" placeholder="Team ${i}">`;
+    html += `
+        <input
+            type="text"
+            id="team${i}"
+            placeholder="Team ${i}"
+        >
+    `;
 }
-html += `<button>Continue</button>`;
+html += `
+    <button onclick="saveTeams(${numberOfTeams})">
+        Continue
+    </button>
+`;
 container.innerHTML = html;
+
+}
+function saveTeams(numberOfTeams){
+
+teamNames = [];
+for(let i = 1; i <= numberOfTeams; i++){
+    const name =
+        document.getElementById(`team${i}`).value.trim();
+    if(name === ""){
+        alert("Please enter all team names.");
+        return;
+    }
+    teamNames.push(name);
+}
+document.getElementById("powerupTeamName").textContent =
+    teamNames[0];
+showScreen("powerupScreen");
 
 }
