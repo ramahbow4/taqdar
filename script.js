@@ -90,26 +90,3 @@ document.getElementById("powerupTeamName").textContent =
 showScreen("powerupScreen");
 
 }
-let selectedPowerups = [];
-
-document.querySelectorAll(”.powerCard”).forEach(card => {
-
-card.addEventListener("click", () => {
-    const powerup = card.textContent;
-    if(card.classList.contains("selected")){
-        card.classList.remove("selected");
-        selectedPowerups =
-            selectedPowerups.filter(
-                item => item !== powerup
-            );
-    } else {
-        if(selectedPowerups.length >= 3){
-            alert("Choose only 3 power-ups.");
-            return;
-        }
-        card.classList.add("selected");
-        selectedPowerups.push(powerup);
-    }
-});
-
-});
