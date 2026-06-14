@@ -90,3 +90,20 @@ document.getElementById("powerupTeamName").textContent =
 showScreen("powerupScreen");
 
 }
+document.querySelectorAll(".powerCard").forEach(card => {
+
+    card.onclick = () => {
+
+        if(card.classList.contains("selected")){
+
+            card.classList.remove("selected");
+
+        } else {
+
+            card.classList.add("selected");
+
+        }
+
+    };
+
+});
