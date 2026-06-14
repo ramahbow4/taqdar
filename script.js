@@ -109,18 +109,41 @@ document.querySelectorAll(".powerCard").forEach(card => {
 
 });
 const powerupContinue =
-    document.getElementById("powerupContinue");
+document.getElementById("powerupContinue");
 
 powerupContinue.addEventListener("click", () => {
 
     const selected =
-        document.querySelectorAll(".powerCard.selected");
+    document.querySelectorAll(".powerCard.selected");
 
     if(selected.length !== 3){
         alert("Choose exactly 3 power-ups.");
         return;
     }
 
-    showScreen("categoryScreen");
+    teamPowerups[teamNames[currentTeam]] = [];
+
+    selected.forEach(card => {
+        teamPowerups[teamNames[currentTeam]].push(
+            card.textContent
+        );
+    });
+
+    currentTeam++;
+
+    document.querySelectorAll(".powerCard").forEach(card => {
+        card.classList.remove("selected");
+    });
+
+    if(currentTeam < teamNames.length){
+
+        document.getElementById("powerupTeamName")
+        .textContent = teamNames[currentTeam];
+
+    } else {
+
+        showScreen("categoryScreen");
+
+    }
 
 });
