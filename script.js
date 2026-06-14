@@ -5,7 +5,8 @@ const devMenu = document.getElementById("devMenu");
 
 let logoClicks = 0;
 let teamNames = [];
-
+let currentTeam = 0;
+let teamPowerups = {};
 function showScreen(screenId) {
 
     document.querySelectorAll(".screen").forEach(screen => {
