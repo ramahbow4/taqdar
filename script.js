@@ -4,6 +4,7 @@ const howBtn = document.getElementById("howBtn");
 const devMenu = document.getElementById("devMenu");
 
 let logoClicks = 0;
+let teamNames = [];
 
 function showScreen(screenId) {
 
