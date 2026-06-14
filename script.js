@@ -107,3 +107,19 @@ document.querySelectorAll(".powerCard").forEach(card => {
     };
 
 });
+const powerupContinue =
+    document.getElementById("powerupContinue");
+
+powerupContinue.addEventListener("click", () => {
+
+    const selected =
+        document.querySelectorAll(".powerCard.selected");
+
+    if(selected.length !== 3){
+        alert("Choose exactly 3 power-ups.");
+        return;
+    }
+
+    showScreen("categoryScreen");
+
+});
