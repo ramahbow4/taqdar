@@ -9,7 +9,7 @@
 <body>
 <div class="container">
 <img src="logo.png" id="logo" class="logo" alt="Taqdar Logo">
-<!-- Home Screen -->
+<!-- HOME -->
 <div id="homeScreen" class="screen active">
     <h1>تقدر؟</h1>
     <p class="subtitle">
@@ -18,18 +18,19 @@
     <button id="startBtn">Start Game</button>
     <button id="howBtn">How To Play</button>
 </div>
-<!-- How To Play Screen -->
+<!-- HOW TO PLAY -->
 <div id="howScreen" class="screen">
     <h2>How To Play</h2>
     <p>Create 2–10 teams.</p>
-    <p>Choose 3 power-ups.</p>
-    <p>Choose 3 categories.</p>
+    <p>Each team chooses 3 Power-Ups.</p>
+    <p>Each team chooses 3 Categories.</p>
+    <p>No duplicate categories allowed.</p>
     <p>Highest score wins.</p>
     <button onclick="showScreen('homeScreen')">
         Back
     </button>
 </div>
-<!-- Team Screen -->
+<!-- TEAM SETUP -->
 <div id="teamScreen" class="screen">
     <h2>Choose Number of Teams</h2>
     <button onclick="selectTeams(2)">2 Teams</button>
@@ -46,7 +47,7 @@
         Back
     </button>
 </div>
-<!-- Power-Up Screen -->
+<!-- POWERUPS -->
 <div id="powerupScreen" class="screen">
     <h2 id="powerupTeamName">
         Team Name
@@ -63,57 +64,37 @@
         Continue
     </button>
 </div>
-<!-- Category Screen -->
+<!-- CATEGORIES -->
 <div id="categoryScreen" class="screen">
     <h2 id="categoryTeamName">
         Team Name
     </h2>
     <p>Choose 3 Categories</p>
-    <div id="categoryCards">
-        <button class="categoryCard">Islamic</button>
-        <button class="categoryCard">Quran</button>
-        <button class="categoryCard">Disney</button>
-        <button class="categoryCard">Marvel</button>
-        <button class="categoryCard">Movies</button>
-        <button class="categoryCard">Soccer</button>
-        <button class="categoryCard">Science</button>
-        <button class="categoryCard">History</button>
-        <button class="categoryCard">Geography</button>
-        <button class="categoryCard">Video Games</button>
-    </div>
+    <div id="categoryCards"></div>
     <button id="categoryContinue">
         Continue
     </button>
 </div>
-<!-- Board Screen -->
+<!-- BOARD -->
 <div id="boardScreen" class="screen">
     <h2>Board</h2>
     <p>
         Board coming soon...
     </p>
 </div>
-<!-- Question Screen -->
+<!-- QUESTION -->
 <div id="questionScreen" class="screen">
     <h2>Question</h2>
-    <p>
-        Question coming soon...
-    </p>
 </div>
-<!-- Answer Screen -->
+<!-- ANSWER -->
 <div id="answerScreen" class="screen">
     <h2>Answer</h2>
-    <p>
-        Answer coming soon...
-    </p>
 </div>
-<!-- Winner Screen -->
+<!-- WINNER -->
 <div id="winnerScreen" class="screen">
     <h2>Winner</h2>
-    <p>
-        Winner coming soon...
-    </p>
 </div>
-<!-- Developer Menu -->
+<!-- DEV MENU -->
 <div id="devMenu">
     <button onclick="showScreen('homeScreen')">Home</button>
     <button onclick="showScreen('teamScreen')">Teams</button>
