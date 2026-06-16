@@ -1,48 +1,174 @@
-const logo = document.getElementById("logo");
-const startBtn = document.getElementById("startBtn");
-const howBtn = document.getElementById("howBtn");
-const devMenu = document.getElementById("devMenu");
+const logo = document.getElementById(“logo”);
+const startBtn = document.getElementById(“startBtn”);
+const howBtn = document.getElementById(“howBtn”);
+const devMenu = document.getElementById(“devMenu”);
 
 let logoClicks = 0;
+
 let teamNames = [];
 let currentTeam = 0;
-let teamPowerups = {};
 
-function showScreen(screenId) {
+let currentCategoryTeam = 0;
+
+const categories = [
+“Islamic”,
+“Quran”,
+“Western Music”,
+“Khaleji Music”,
+“Medicine”,
+“Nerds”,
+“Girls Interests”,
+“Handbag”,
+“Makeup”,
+“Brands”,
+“Perfume”,
+“Cars”,
+“Soccer”,
+“Sports”,
+“Trends”,
+“Disney”,
+“Marvel”,
+“English Language and Literature”,
+“Arabic Language and Literature”,
+“Supermarket”,
+“Movies”,
+“Shahid”,
+“Disney+”,
+“Netflix”,
+“Flags”,
+“Languages”,
+“General Knowledge”,
+“Saudi History”,
+“One Piece”,
+“Capital Cities”,
+“Math”,
+“Technology”,
+“Western Celebrities”,
+“Khaleji Celebrities”,
+“Charades”,
+“Animals”,
+“Logos”,
+“Flowers”,
+“Sea Animals”,
+“TikTok”,
+“Memes”,
+“Drinks”,
+“Restaurants”,
+“DC”,
+“Cartoon Network”,
+“Ramadan”,
+“Nickelodeon”,
+“History”,
+“Geography”,
+“Video Games”,
+“Space”,
+“Books”,
+“Foods”,
+“Desserts”,
+“Fast Foods”,
+“Inventors”,
+“Landmarks”,
+“Physics”,
+“Chemistry”,
+“Biology”,
+“World History”,
+“Brain Teasers”,
+“Tongue Twisters”,
+“Vegetables”,
+“Musical Instruments”,
+“Airlines”,
+“Hotels”,
+“Airports”,
+“Board Games”,
+“Olympics”,
+“Harry Potter”,
+“Pokémon”,
+“Minecraft”,
+“Roblox”,
+“Star Wars”,
+“Pixar”,
+“DreamWorks”,
+“Football Players”,
+“Basketball”,
+“Formula 1”,
+“Ancient Civilizations”,
+“Toys”,
+“School Subjects”,
+“Scrabble”,
+“Programming and Coding”,
+“Red Sea Mall”,
+“Dates”,
+“Disney Descendants & Zombies”,
+“Guess The Sound”,
+“Guess The Picture”,
+“Before & After”,
+“Finish The Quote”,
+“Name The Character”,
+“Name The Song”,
+“What’s Missing?”,
+“Guess The Logo”,
+“This Or That”,
+“Speed Round”,
+“Mystery Category”,
+“AI & ChatGPT”,
+“Internet History”,
+“Viral Videos”,
+“Guess The Emoji”,
+“Famous Quotes”,
+“Mythology”,
+“Weather”,
+“World Records”,
+“Inventions”,
+“Riddles”,
+“Guess The Flag”,
+“Famous Buildings”,
+“Jeddah”,
+“Riyadh”,
+“Makkah”,
+“Madinah”,
+“Anime”,
+“Studio Ghibli”,
+“DreamWorks Characters”,
+“Pixar Characters”,
+“Streaming Services”,
+“Mobile Apps”,
+“Internet Slang”,
+“Chess”,
+“Formula E”
+];
+
+function showScreen(screenId){
 
 document.querySelectorAll(".screen").forEach(screen => {
     screen.classList.remove("active");
 });
-const screen = document.getElementById(screenId);
-if (screen) {
-    screen.classList.add("active");
-}
-if (screenId === "homeScreen") {
+document.getElementById(screenId).classList.add("active");
+if(screenId === "homeScreen"){
     logo.style.visibility = "visible";
-} else {
+}else{
     logo.style.visibility = "hidden";
 }
-window.scrollTo(0, 0);
+window.scrollTo(0,0);
 
 }
 
-startBtn.addEventListener("click", () => {
-showScreen("teamScreen");
+startBtn.addEventListener(“click”, () => {
+showScreen(“teamScreen”);
 });
 
-howBtn.addEventListener("click", () => {
-showScreen("howScreen");
+howBtn.addEventListener(“click”, () => {
+showScreen(“howScreen”);
 });
 
-logo.addEventListener("click", () => {
+logo.addEventListener(“click”, () => {
 
 logoClicks++;
-if (logoClicks >= 5) {
+if(logoClicks >= 5){
     const password = prompt("Developer Password");
-    if (password === "ramahb0w4") {
+    if(password === "ramahb0w4"){
         devMenu.style.display = "block";
         alert("Developer Mode Activated");
-    } else {
+    }else{
         alert("Wrong Password");
     }
     logoClicks = 0;
@@ -50,11 +176,12 @@ if (logoClicks >= 5) {
 
 });
 
-function selectTeams(numberOfTeams) {
+function selectTeams(numberOfTeams){
 
-const container = document.getElementById("teamInputs");
+const teamInputs =
+document.getElementById("teamInputs");
 let html = "<h2>Enter Team Names</h2>";
-for (let i = 1; i <= numberOfTeams; i++) {
+for(let i=1;i<=numberOfTeams;i++){
     html += `
         <input
             type="text"
@@ -68,17 +195,17 @@ html += `
         Continue
     </button>
 `;
-container.innerHTML = html;
+teamInputs.innerHTML = html;
 
 }
 
-function saveTeams(numberOfTeams) {
+function saveTeams(numberOfTeams){
 
 teamNames = [];
-for (let i = 1; i <= numberOfTeams; i++) {
+for(let i=1;i<=numberOfTeams;i++){
     const name =
-        document.getElementById(`team${i}`).value.trim();
-    if (name === "") {
+    document.getElementById(`team${i}`).value.trim();
+    if(name === ""){
         alert("Please enter all team names.");
         return;
     }
@@ -86,7 +213,7 @@ for (let i = 1; i <= numberOfTeams; i++) {
 }
 currentTeam = 0;
 document.getElementById("powerupTeamName").textContent =
-    teamNames[currentTeam];
+teamNames[currentTeam];
 showScreen("powerupScreen");
 
 }
@@ -94,12 +221,12 @@ showScreen("powerupScreen");
 document.querySelectorAll(”.powerCard”).forEach(card => {
 
 card.addEventListener("click", () => {
-    if (card.classList.contains("selected")) {
+    if(card.classList.contains("selected")){
         card.classList.remove("selected");
-    } else {
+    }else{
         const selected =
-            document.querySelectorAll(".powerCard.selected");
-        if (selected.length >= 3) {
+        document.querySelectorAll(".powerCard.selected");
+        if(selected.length >= 3){
             alert("Choose only 3 power-ups.");
             return;
         }
@@ -109,26 +236,82 @@ card.addEventListener("click", () => {
 
 });
 
-const powerupContinue =
-document.getElementById(“powerupContinue”);
-
-powerupContinue.addEventListener("click", () => {
+document
+.getElementById(“powerupContinue”)
+.addEventListener(“click”, () => {
 
 const selected =
-    document.querySelectorAll(".powerCard.selected");
-if (selected.length !== 3) {
+document.querySelectorAll(".powerCard.selected");
+if(selected.length !== 3){
     alert("Choose exactly 3 power-ups.");
     return;
 }
 currentTeam++;
-document.querySelectorAll(".powerCard").forEach(card => {
+document.querySelectorAll(".powerCard")
+.forEach(card => {
     card.classList.remove("selected");
 });
-if (currentTeam < teamNames.length) {
+if(currentTeam < teamNames.length){
     document.getElementById("powerupTeamName").textContent =
-        teamNames[currentTeam];
-} else {
+    teamNames[currentTeam];
+}else{
+    loadCategories();
+    currentCategoryTeam = 0;
+    document.getElementById("categoryTeamName").textContent =
+    teamNames[currentCategoryTeam];
     showScreen("categoryScreen");
+}
+
+});
+
+function loadCategories(){
+
+const container =
+document.getElementById("categoryCards");
+container.innerHTML = "";
+categories.forEach(category => {
+    const button =
+    document.createElement("button");
+    button.className = "categoryCard";
+    button.textContent = category;
+    button.addEventListener("click", () => {
+        if(button.classList.contains("selected")){
+            button.classList.remove("selected");
+        }else{
+            const selected =
+            document.querySelectorAll(".categoryCard.selected");
+            if(selected.length >= 3){
+                alert("Choose only 3 categories.");
+                return;
+            }
+            button.classList.add("selected");
+        }
+    });
+    container.appendChild(button);
+});
+
+}
+
+document
+.getElementById(“categoryContinue”)
+.addEventListener(“click”, () => {
+
+const selected =
+document.querySelectorAll(".categoryCard.selected");
+if(selected.length !== 3){
+    alert("Choose exactly 3 categories.");
+    return;
+}
+currentCategoryTeam++;
+document.querySelectorAll(".categoryCard")
+.forEach(card => {
+    card.classList.remove("selected");
+});
+if(currentCategoryTeam < teamNames.length){
+    document.getElementById("categoryTeamName").textContent =
+    teamNames[currentCategoryTeam];
+}else{
+    showScreen("boardScreen");
 }
 
 });
