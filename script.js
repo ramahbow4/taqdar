@@ -1,3 +1,4 @@
+alert("JS Loaded");
 const logo = document.getElementById(“logo”);
 const startBtn = document.getElementById(“startBtn”);
 const howBtn = document.getElementById(“howBtn”);
