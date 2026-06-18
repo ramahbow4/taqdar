@@ -152,3 +152,25 @@ h2{
 }
 
 }
+#boardGrid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(180px,1fr));
+gap:15px;
+margin-top:20px;
+}
+
+.boardCategory{
+background:rgba(255,255,255,0.1);
+padding:10px;
+border-radius:16px;
+}
+
+.boardCategory h3{
+margin-bottom:10px;
+}
+
+.questionBtn{
+display:block;
+width:100%;
+margin:6px 0;
+}
