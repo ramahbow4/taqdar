@@ -86,6 +86,49 @@ document.querySelectorAll(".powerCard").forEach(card => {
         }
     });
 });
+let selectedCategories = [];
+const categories = [
+"Marvel",
+"Disney",
+"Cars",
+"Soccer",
+"Anime",
+"Space",
+"Foods",
+"Geography",
+"Minecraft",
+"Roblox",
+"History",
+"Technology"
+];
+let currentCategoryTeam = 0;
+function loadCategories() {
+    const container = document.getElementById("categoryCards");
+    container.innerHTML = "";
+    categories.forEach(category => {
+        const button = document.createElement("button");
+        button.className = "categoryCard";
+        button.textContent = category;
+        if (selectedCategories.includes(category)) {
+            button.disabled = true;
+            button.style.opacity = "0.5";
+        }
+        button.addEventListener("click", () => {
+            if (button.classList.contains("selected")) {
+                button.classList.remove("selected");
+            } else {
+                const selected =
+                    document.querySelectorAll(".categoryCard.selected");
+                if (selected.length >= 3) {
+                    alert("Choose only 3 categories.");
+                    return;
+                }
+                button.classList.add("selected");
+            }
+        });
+        container.appendChild(button);
+    });
+}
 document.getElementById("powerupContinue")
 .addEventListener("click", () => {
     const selected =
@@ -94,6 +137,48 @@ document.getElementById("powerupContinue")
         alert("Choose exactly 3 power-ups.");
         return;
     }
-    alert("Power-Ups Saved!");
+    loadCategories();
+    currentCategoryTeam = 0;
+    document.getElementById("categoryTeamName").textContent =
+        teamNames[currentCategoryTeam];
     showScreen("categoryScreen");
 });
+document.getElementById("categoryContinue")
+.addEventListener("click", () => {
+    const selected =
+        document.querySelectorAll(".categoryCard.selected");
+    if (selected.length !== 3) {
+        alert("Choose exactly 3 categories.");
+        return;
+    }
+    selected.forEach(card => {
+        selectedCategories.push(card.textContent);
+    });
+    currentCategoryTeam++;
+    if (currentCategoryTeam < teamNames.length) {
+        document.getElementById("categoryTeamName").textContent =
+            teamNames[currentCategoryTeam];
+        loadCategories();
+    } else {
+        buildBoard();
+        showScreen("boardScreen");
+    }
+});
+function buildBoard() {
+    const board = document.getElementById("boardGrid");
+    if (!board) return;
+    board.innerHTML = "";
+    selectedCategories.forEach(category => {
+        const categoryDiv =
+            document.createElement("div");
+        categoryDiv.className =
+            "boardCategory";
+        categoryDiv.innerHTML = `
+            <h3>${category}</h3>
+            <button class="questionBtn">200</button>
+            <button class="questionBtn">400</button>
+            <button class="questionBtn">600</button>
+        `;
+        board.appendChild(categoryDiv);
+    });
+}
