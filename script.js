@@ -155,14 +155,28 @@ document.getElementById("categoryContinue")
         selectedCategories.push(card.textContent);
     });
     currentCategoryTeam++;
-    if (currentCategoryTeam < teamNames.length) {
-        document.getElementById("categoryTeamName").textContent =
-            teamNames[currentCategoryTeam];
-        loadCategories();
-    } else {
-        buildBoard();
-        showScreen("boardScreen");
-    }
+if (currentCategoryTeam < teamNames.length) {
+
+    document.getElementById("categoryTeamName").textContent =
+        teamNames[currentCategoryTeam];
+
+    document.querySelectorAll(".categoryCard").forEach(card => {
+        card.classList.remove("selected");
+    });
+
+    loadCategories();
+
+    alert(
+        teamNames[currentCategoryTeam] +
+        ", choose your 3 categories."
+    );
+
+} else {
+
+    buildBoard();
+    showScreen("boardScreen");
+
+}
 });
 function buildBoard() {
     const board = document.getElementById("boardGrid");
