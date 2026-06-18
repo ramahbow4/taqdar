@@ -286,7 +286,6 @@ if (currentCategoryTeam < teamNames.length) {
 } else {
 
     buildBoard();
-setupScoreBoard();
 showScreen("boardScreen");
 
 }
