@@ -286,7 +286,8 @@ if (currentCategoryTeam < teamNames.length) {
 } else {
 
     buildBoard();
-    showScreen("boardScreen");
+setupScoreBoard();
+showScreen("boardScreen");
 
 }
 });
@@ -307,4 +308,49 @@ function buildBoard() {
         `;
         board.appendChild(categoryDiv);
     });
+}
+let scores = {};
+
+function setupScoreBoard() {
+
+    const selector =
+        document.getElementById("teamSelector");
+
+    const board =
+        document.getElementById("scoreBoard");
+
+    selector.innerHTML = "";
+    board.innerHTML = "";
+
+    teamNames.forEach(team => {
+
+        scores[team] = 0;
+
+        selector.innerHTML += `
+            <option value="${team}">
+                ${team}
+            </option>
+        `;
+
+        board.innerHTML += `
+            <p id="score-${team}">
+                ${team}: 0
+            </p>
+        `;
+
+    });
+
+}
+
+function changeScore(points) {
+
+    const team =
+        document.getElementById("teamSelector").value;
+
+    scores[team] += points;
+
+    document.getElementById(`score-${team}`)
+    .textContent =
+        `${team}: ${scores[team]}`;
+
 }
