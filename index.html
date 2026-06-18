@@ -81,9 +81,21 @@
 
     <div id="boardGrid"></div>
 
-    <button onclick="showScreen('categoryScreen')">
-        Back
-    </button>
+    <hr>
+
+    <h3>Score Control</h3>
+
+    <select id="teamSelector"></select>
+
+    <button onclick="changeScore(200)">+200</button>
+    <button onclick="changeScore(400)">+400</button>
+    <button onclick="changeScore(600)">+600</button>
+
+    <button onclick="changeScore(-200)">-200</button>
+    <button onclick="changeScore(-400)">-400</button>
+    <button onclick="changeScore(-600)">-600</button>
+
+    <div id="scoreBoard"></div>
 </div>
 <!-- QUESTION -->
 <div id="questionScreen" class="screen">
