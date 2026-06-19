@@ -150,8 +150,8 @@ card.addEventListener("click", () => {
 });
 
 document.getElementById(
-“powerupContinue”
-).addEventListener(“click”, () => {
+"powerupContinue"
+).addEventListener("click", () => {
 
 const selected =
 document.querySelectorAll(
