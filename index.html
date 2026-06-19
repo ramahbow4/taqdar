@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>تقدر؟</title>
-<link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>تقدر؟</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
 <div class="container">
@@ -43,11 +43,8 @@
     <button onclick="selectTeams(9)">9 Teams</button>
     <button onclick="selectTeams(10)">10 Teams</button>
     <div id="teamInputs"></div>
-    <button onclick="showScreen('homeScreen')">
-        Back
-    </button>
 </div>
-<!-- POWERUPS -->
+<!-- POWER UPS -->
 <div id="powerupScreen" class="screen">
     <h2 id="powerupTeamName">
         Team Name
@@ -59,6 +56,7 @@
         <button class="powerCard">Block Team</button>
         <button class="powerCard">First Letter</button>
         <button class="powerCard">20 Second Search</button>
+        <button class="powerCard">Call A Friend</button>
     </div>
     <button id="powerupContinue">
         Continue
@@ -78,44 +76,73 @@
 <!-- BOARD -->
 <div id="boardScreen" class="screen">
     <h2>Game Board</h2>
-
     <div id="boardGrid"></div>
-
     <hr>
-
-    <h3>Score Control</h3>
-
+    <h3>Scoreboard</h3>
     <select id="teamSelector"></select>
-
     <button onclick="changeScore(200)">+200</button>
     <button onclick="changeScore(400)">+400</button>
     <button onclick="changeScore(600)">+600</button>
-
-    <button onclick="changeScore(-200)">-200</button>
-    <button onclick="changeScore(-400)">-400</button>
-    <button onclick="changeScore(-600)">-600</button>
-
     <div id="scoreBoard"></div>
 </div>
 <!-- QUESTION -->
 <div id="questionScreen" class="screen">
-    <h2>Question</h2>
+    <h2 id="questionCategory">
+        Category
+    </h2>
+    <h3 id="questionPoints">
+        200 Points
+    </h3>
+    <div id="timer">
+        03:00
+    </div>
+    <div id="questionText">
+        Question goes here...
+    </div>
+    <button id="showAnswerBtn">
+        Show Answer
+    </button>
+    <button id="addTimeBtn">
+        +20 Seconds
+    </button>
 </div>
 <!-- ANSWER -->
 <div id="answerScreen" class="screen">
     <h2>Answer</h2>
+    <div id="answerText">
+        Answer goes here...
+    </div>
+    <button onclick="showScreen('boardScreen')">
+        Back To Board
+    </button>
 </div>
 <!-- WINNER -->
 <div id="winnerScreen" class="screen">
-    <h2>Winner</h2>
+    <h2>Winner!</h2>
+    <h1 id="winnerName">
+        Team Name
+    </h1>
+    <button onclick="showScreen('homeScreen')">
+        Home
+    </button>
 </div>
 <!-- DEV MENU -->
 <div id="devMenu">
-    <button onclick="showScreen('homeScreen')">Home</button>
-    <button onclick="showScreen('teamScreen')">Teams</button>
-    <button onclick="showScreen('powerupScreen')">Power-Ups</button>
-    <button onclick="showScreen('categoryScreen')">Categories</button>
-    <button onclick="showScreen('boardScreen')">Board</button>
+    <button onclick="showScreen('homeScreen')">
+        Home
+    </button>
+    <button onclick="showScreen('teamScreen')">
+        Teams
+    </button>
+    <button onclick="showScreen('powerupScreen')">
+        Power-Ups
+    </button>
+    <button onclick="showScreen('categoryScreen')">
+        Categories
+    </button>
+    <button onclick="showScreen('boardScreen')">
+        Board
+    </button>
 </div>
 </div>
 <script src="script.js"></script>
