@@ -206,3 +206,117 @@ if (
 }
 
 });
+const categories = [
+“Islamic”,
+“Quran”,
+“Disney”,
+“Marvel”,
+“Movies”,
+“Soccer”,
+“History”,
+“Geography”,
+“Video Games”,
+“Technology”,
+“Anime”,
+“Harry Potter”,
+“Minecraft”,
+“Roblox”,
+“Pokémon”,
+“Space”,
+“Math”,
+“Science”,
+“Jeddah”,
+“Makkah”
+];
+
+function loadCategories(){
+
+const container =
+document.getElementById(
+    "categoryCards"
+);
+container.innerHTML = "";
+categories.forEach(category => {
+    const button =
+    document.createElement(
+        "button"
+    );
+    button.className =
+    "categoryCard";
+    button.textContent =
+    category;
+    button.addEventListener(
+        "click",
+        () => {
+            if(
+                button.classList.contains(
+                    "selected"
+                )
+            ){
+                button.classList.remove(
+                    "selected"
+                );
+            }else{
+                const selected =
+                document.querySelectorAll(
+                    ".categoryCard.selected"
+                );
+                if(
+                    selected.length >= 3
+                ){
+                    alert(
+                        "Choose only 3 categories."
+                    );
+                    return;
+                }
+                button.classList.add(
+                    "selected"
+                );
+            }
+        }
+    );
+    container.appendChild(
+        button
+    );
+});
+
+}
+
+document.getElementById(
+“categoryContinue”
+).addEventListener(“click”, () => {
+
+const selected =
+document.querySelectorAll(
+    ".categoryCard.selected"
+);
+if(selected.length !== 3){
+    alert(
+        "Choose exactly 3 categories."
+    );
+    return;
+}
+selected.forEach(card => {
+    selectedCategories.push(
+        card.textContent
+    );
+});
+currentCategoryTeam++;
+if(
+    currentCategoryTeam <
+    teamNames.length
+){
+    document.getElementById(
+        "categoryTeamName"
+    ).textContent =
+    teamNames[currentCategoryTeam];
+    loadCategories();
+}else{
+    buildBoard();
+    setupScoreBoard();
+    showScreen(
+        "boardScreen"
+    );
+}
+
+});
