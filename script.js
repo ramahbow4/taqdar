@@ -404,8 +404,8 @@ categories.forEach(category => {
 }
 
 document.getElementById(
-“categoryContinue”
-).addEventListener(“click”, () => {
+"categoryContinue"
+).addEventListener("click", () => {
 
 const selected =
 document.querySelectorAll(
