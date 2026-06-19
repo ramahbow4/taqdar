@@ -124,7 +124,7 @@ function saveTeams(numberOfTeams) {
     showScreen("powerupScreen");
 
 }
-document.querySelectorAll(”.powerCard”)
+document.querySelectorAll(".powerCard")
 .forEach(card => {
 
 card.addEventListener("click", () => {
