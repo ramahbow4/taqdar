@@ -194,3 +194,264 @@ if(
 }
 
 });
+const categories = [
+“Islamic”,
+“Quran”,
+“Western Music”,
+“Khaleji Music”,
+“Medicine”,
+“Nerds”,
+“Girls Interests”,
+“Handbag”,
+“Makeup”,
+“Brands”,
+“Perfume”,
+“Cars”,
+“Soccer”,
+“Sports”,
+“Trends”,
+“Disney”,
+“Marvel”,
+“English Language and Literature”,
+“Arabic Language and Literature”,
+“Supermarket”,
+“Movies”,
+“Shahid”,
+“Disney+”,
+“Netflix”,
+“Flags”,
+“Languages”,
+“General Knowledge”,
+“Saudi History”,
+“One Piece”,
+“Capital Cities”,
+“Math”,
+“Technology”,
+“Animals”,
+“Logos”,
+“Flowers”,
+“Sea Animals”,
+“TikTok”,
+“Memes”,
+“Drinks”,
+“Restaurants”,
+“History”,
+“Geography”,
+“Video Games”,
+“Space”,
+“Books”,
+“Foods”,
+“Desserts”,
+“Fast Foods”,
+“Inventors”,
+“Landmarks”,
+“Physics”,
+“Chemistry”,
+“Biology”,
+“World History”,
+“Brain Teasers”,
+“Football Players”,
+“Basketball”,
+“Formula 1”,
+“Harry Potter”,
+“Pokémon”,
+“Minecraft”,
+“Roblox”,
+“Star Wars”,
+“Pixar”,
+“DreamWorks”,
+“Programming and Coding”,
+“Red Sea Mall”,
+“Dates”,
+“AI & ChatGPT”,
+“Internet History”,
+“Viral Videos”,
+“Jeddah”,
+“Riyadh”,
+“Makkah”,
+“Madinah”,
+“Anime”,
+“Studio Ghibli”,
+“Chess”,
+“Formula E”
+];
+
+let scores = {};
+
+function loadCategories(){
+
+const container =
+document.getElementById(
+    "categoryCards"
+);
+container.innerHTML = "";
+categories.forEach(category => {
+    const button =
+    document.createElement(
+        "button"
+    );
+    button.className =
+    "categoryCard";
+    button.textContent =
+    category;
+    button.addEventListener(
+        "click",
+        () => {
+        if(
+            button.classList.contains(
+                "selected"
+            )
+        ){
+            button.classList.remove(
+                "selected"
+            );
+        }else{
+            const selected =
+            document.querySelectorAll(
+                ".categoryCard.selected"
+            );
+            if(
+                selected.length >= 3
+            ){
+                alert(
+                    "Choose only 3 categories."
+                );
+                return;
+            }
+            button.classList.add(
+                "selected"
+            );
+        }
+    });
+    container.appendChild(
+        button
+    );
+});
+
+}
+
+document.getElementById(
+“categoryContinue”
+).addEventListener(
+“click”,
+() => {
+
+const selected =
+document.querySelectorAll(
+    ".categoryCard.selected"
+);
+if(
+    selected.length !== 3
+){
+    alert(
+        "Choose exactly 3 categories."
+    );
+    return;
+}
+selected.forEach(card => {
+    selectedCategories.push(
+        card.textContent
+    );
+});
+currentCategoryTeam++;
+if(
+    currentCategoryTeam <
+    teamNames.length
+){
+    document.getElementById(
+        "categoryTeamName"
+    ).textContent =
+    teamNames[currentCategoryTeam];
+    document.querySelectorAll(
+        ".categoryCard"
+    ).forEach(card => {
+        card.classList.remove(
+            "selected"
+        );
+    });
+    alert(
+        teamNames[currentCategoryTeam] +
+        ", choose your 3 categories."
+    );
+}else{
+    buildBoard();
+    setupScoreBoard();
+    showScreen(
+        "boardScreen"
+    );
+}
+
+});
+
+function buildBoard(){
+
+const board =
+document.getElementById(
+    "boardGrid"
+);
+board.innerHTML = "";
+selectedCategories.forEach(category => {
+    const div =
+    document.createElement(
+        "div"
+    );
+    div.className =
+    "boardCategory";
+    div.innerHTML = `
+        <h3>${category}</h3>
+        <button class="questionBtn">
+            200
+        </button>
+        <button class="questionBtn">
+            400
+        </button>
+        <button class="questionBtn">
+            600
+        </button>
+    `;
+    board.appendChild(div);
+});
+
+}
+
+function setupScoreBoard(){
+
+const selector =
+document.getElementById(
+    "teamSelector"
+);
+const board =
+document.getElementById(
+    "scoreBoard"
+);
+selector.innerHTML = "";
+board.innerHTML = "";
+teamNames.forEach(team => {
+    scores[team] = 0;
+    selector.innerHTML += `
+        <option value="${team}">
+            ${team}
+        </option>
+    `;
+    board.innerHTML += `
+        <p id="score-${team}">
+            ${team}: 0
+        </p>
+    `;
+});
+
+}
+
+function changeScore(points){
+
+const team =
+document.getElementById(
+    "teamSelector"
+).value;
+scores[team] += points;
+document.getElementById(
+    `score-${team}`
+).textContent =
+`${team}: ${scores[team]}`;
+
+}
