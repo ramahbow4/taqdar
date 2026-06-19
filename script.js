@@ -267,7 +267,8 @@ document.getElementById("categoryContinue")
         selectedCategories.push(card.textContent);
     });
     currentCategoryTeam++;
-if (currentCategoryTeam < teamNames.length) {
+let teamPowerups = {};
+    if (currentCategoryTeam < teamNames.length) {
 
     document.getElementById("categoryTeamName").textContent =
         teamNames[currentCategoryTeam];
