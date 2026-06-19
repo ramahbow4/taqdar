@@ -207,26 +207,147 @@ if (
 
 });
 const categories = [
-“Islamic”,
-“Quran”,
-“Disney”,
-“Marvel”,
-“Movies”,
-“Soccer”,
-“History”,
-“Geography”,
-“Video Games”,
-“Technology”,
-“Anime”,
-“Harry Potter”,
-“Minecraft”,
-“Roblox”,
-“Pokémon”,
-“Space”,
-“Math”,
-“Science”,
-“Jeddah”,
-“Makkah”
+"Islamic",
+"Quran",
+"Western Music",
+"Khaleji Music",
+"Medicine",
+"Nerds",
+"Girls Interests",
+"Handbag",
+"Makeup",
+"Brands",
+"Perfume",
+"Cars",
+"Soccer",
+"Sports",
+"Trends",
+"Disney",
+"Marvel",
+"English Language and Literature",
+"Arabic Language and Literature",
+"Supermarket",
+"Movies",
+"Shahid",
+"Disney+",
+"Netflix",
+"Flags",
+"Languages",
+"General Knowledge",
+"Saudi History",
+"Posters",
+"One Piece",
+"Capital Cities",
+"Math",
+"Technology",
+"Western Celebrities",
+"Khaleji Celebrities",
+"Charades",
+"Animals",
+"Logos",
+"Flowers",
+"Sea Animals",
+"TikTok",
+"Memes",
+"Drinks",
+"Restaurants",
+"DC",
+"Cartoon Network",
+"Ramadan",
+"Nickelodeon",
+"History",
+"Geography",
+"Video Games",
+"Space",
+"Books",
+"Foods",
+"Desserts",
+"Fast Foods",
+"Inventors",
+"Landmarks",
+"Physics",
+"Chemistry",
+"Biology",
+"World History",
+"Brain Teasers",
+"Tongue Twisters",
+"Vegetables",
+"Musical Instruments",
+"Airlines",
+"Hotels",
+"Airports",
+"Board Games",
+"Olympics",
+"E.G.O.T. Award Winners",
+"Sci-Fi Movies",
+"Comedy Movies",
+"Movie Posters",
+"YouTubers",
+"Influencers",
+"TV Shows",
+"Sitcoms",
+"Horror Movies",
+"Action Movies",
+"Superheroes",
+"Villains",
+"Harry Potter",
+"Pokémon",
+"Minecraft",
+"Roblox",
+"Star Wars",
+"Pixar",
+"DreamWorks",
+"Video Game Characters",
+"App Icons",
+"Emoji",
+"Football Players",
+"Basketball",
+"Formula 1",
+"Ancient Civilizations",
+"Toys",
+"School Subjects",
+"Scrabble",
+"Marvel Defenders Universe",
+"Programming and Coding",
+"Red Sea Mall",
+"Dates",
+"Disney Descendants & Zombies",
+"Guess The Sound",
+"Guess The Picture",
+"Before & After",
+"Finish The Quote",
+"Name The Character",
+"Name The Song",
+"What's Missing?",
+"Guess The Logo",
+"This Or That",
+"Speed Round",
+"Mystery Category",
+"AI & ChatGPT",
+"Internet History",
+"Viral Videos",
+"Guess The Emoji",
+"Famous Quotes",
+"Mythology",
+"Weather",
+"World Records",
+"Inventions",
+"Riddles",
+"Guess The Flag",
+"Famous Buildings",
+"Jeddah",
+"Riyadh",
+"Makkah",
+"Madinah",
+"Anime",
+"Studio Ghibli",
+"DreamWorks Characters",
+"Pixar Characters",
+"Streaming Services",
+"Mobile Apps",
+"Internet Slang",
+"Chess",
+"Formula E"
 ];
 
 function loadCategories(){
@@ -320,3 +441,212 @@ if(
 }
 
 });
+function buildBoard(){
+
+const board =
+document.getElementById(
+    "boardGrid"
+);
+board.innerHTML = "";
+selectedCategories.forEach(category => {
+    const categoryDiv =
+    document.createElement("div");
+    categoryDiv.className =
+    "boardCategory";
+    categoryDiv.innerHTML = `
+        <h3>${category}</h3>
+        <button class="questionBtn">
+            200
+        </button>
+        <button class="questionBtn">
+            400
+        </button>
+        <button class="questionBtn">
+            600
+        </button>
+    `;
+    board.appendChild(
+        categoryDiv
+    );
+});
+
+}
+
+function setupScoreBoard(){
+
+const selector =
+document.getElementById(
+    "teamSelector"
+);
+const board =
+document.getElementById(
+    "scoreBoard"
+);
+selector.innerHTML = "";
+board.innerHTML = "";
+teamNames.forEach(team => {
+    scores[team] = 0;
+    selector.innerHTML += `
+        <option value="${team}">
+            ${team}
+        </option>
+    `;
+    board.innerHTML += `
+        <p id="score-${team}">
+            ${team}: 0
+        </p>
+    `;
+});
+
+}
+
+function changeScore(points){
+
+const team =
+document.getElementById(
+    "teamSelector"
+).value;
+scores[team] += points;
+document.getElementById(
+    `score-${team}`
+).textContent =
+`${team}: ${scores[team]}`;
+
+}
+let currentQuestion = “”;
+let currentAnswer = “”;
+
+let timeLeft = 180;
+let timerInterval;
+
+function startTimer(){
+
+clearInterval(timerInterval);
+timeLeft = 180;
+updateTimer();
+timerInterval = setInterval(() => {
+    timeLeft--;
+    updateTimer();
+    if(timeLeft <= 0){
+        clearInterval(timerInterval);
+        alert("Time's Up!");
+    }
+},1000);
+
+}
+
+function updateTimer(){
+
+const minutes =
+Math.floor(timeLeft / 60);
+const seconds =
+timeLeft % 60;
+document.getElementById(
+    "timer"
+).textContent =
+`${minutes}:${seconds
+    .toString()
+    .padStart(2,"0")}`;
+
+}
+
+document.getElementById(
+“addTimeBtn”
+).addEventListener(“click”, () => {
+
+timeLeft += 20;
+updateTimer();
+
+});
+
+function openQuestion(
+category,
+points
+){
+
+currentQuestion =
+`${category} Question`;
+currentAnswer =
+`${category} Answer`;
+document.getElementById(
+    "questionCategory"
+).textContent =
+category;
+document.getElementById(
+    "questionPoints"
+).textContent =
+`${points} Points`;
+document.getElementById(
+    "questionText"
+).textContent =
+currentQuestion;
+showScreen(
+    "questionScreen"
+);
+startTimer();
+
+}
+
+document.addEventListener(
+“click”,
+event => {
+
+if(
+    event.target.classList.contains(
+        "questionBtn"
+    )
+){
+    const points =
+    event.target.textContent;
+    const category =
+    event.target
+    .parentElement
+    .querySelector("h3")
+    .textContent;
+    event.target.disabled = true;
+    openQuestion(
+        category,
+        points
+    );
+}
+
+});
+
+document.getElementById(
+“showAnswerBtn”
+).addEventListener(“click”, () => {
+
+clearInterval(
+    timerInterval
+);
+document.getElementById(
+    "answerText"
+).textContent =
+currentAnswer;
+showScreen(
+    "answerScreen"
+);
+
+});
+
+function checkWinner(){
+
+let winner =
+teamNames[0];
+teamNames.forEach(team => {
+    if(
+        scores[team] >
+        scores[winner]
+    ){
+        winner = team;
+    }
+});
+document.getElementById(
+    "winnerName"
+).textContent =
+winner;
+showScreen(
+    "winnerScreen"
+);
+
+}
