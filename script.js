@@ -1,7 +1,7 @@
-const logo = document.getElementById(“logo”);
-const startBtn = document.getElementById(“startBtn”);
-const howBtn = document.getElementById(“howBtn”);
-const devMenu = document.getElementById(“devMenu”);
+const logo = document.getElementById("logo");
+const startBtn = document.getElementById("startBtn");
+const howBtn = document.getElementById("howBtn");
+const devMenu = document.getElementById("devMenu");
 
 let logoClicks = 0;
 
@@ -27,15 +27,15 @@ window.scrollTo(0,0);
 
 }
 
-startBtn.addEventListener(“click”, () => {
+startBtn.addEventListener("click", () => {
 showScreen(“teamScreen”);
 });
 
-howBtn.addEventListener(“click”, () => {
-showScreen(“howScreen”);
+howBtn.addEventListener("click", () => {
+showScreen("howScreen");
 });
 
-logo.addEventListener(“click”, () => {
+logo.addEventListener("click", () => {
 
 logoClicks++;
 if(logoClicks >= 5){
@@ -106,7 +106,7 @@ showScreen("powerupScreen");
 }
 
 document.querySelectorAll(
-“.powerCard”
+".powerCard"
 ).forEach(card => {
 
 card.addEventListener(
@@ -142,9 +142,9 @@ card.addEventListener(
 });
 
 document.getElementById(
-“powerupContinue”
+"powerupContinue"
 ).addEventListener(
-“click”,
+"click",
 () => {
 
 const selected =
@@ -195,85 +195,85 @@ if(
 
 });
 const categories = [
-“Islamic”,
-“Quran”,
-“Western Music”,
-“Khaleji Music”,
-“Medicine”,
-“Nerds”,
-“Girls Interests”,
-“Handbag”,
-“Makeup”,
-“Brands”,
-“Perfume”,
-“Cars”,
-“Soccer”,
-“Sports”,
-“Trends”,
-“Disney”,
-“Marvel”,
-“English Language and Literature”,
-“Arabic Language and Literature”,
-“Supermarket”,
-“Movies”,
-“Shahid”,
-“Disney+”,
-“Netflix”,
-“Flags”,
-“Languages”,
-“General Knowledge”,
-“Saudi History”,
-“One Piece”,
-“Capital Cities”,
-“Math”,
-“Technology”,
-“Animals”,
-“Logos”,
-“Flowers”,
-“Sea Animals”,
-“TikTok”,
-“Memes”,
-“Drinks”,
-“Restaurants”,
-“History”,
-“Geography”,
-“Video Games”,
-“Space”,
-“Books”,
-“Foods”,
-“Desserts”,
-“Fast Foods”,
-“Inventors”,
-“Landmarks”,
-“Physics”,
-“Chemistry”,
-“Biology”,
-“World History”,
-“Brain Teasers”,
-“Football Players”,
-“Basketball”,
-“Formula 1”,
-“Harry Potter”,
-“Pokémon”,
-“Minecraft”,
-“Roblox”,
-“Star Wars”,
-“Pixar”,
-“DreamWorks”,
-“Programming and Coding”,
-“Red Sea Mall”,
-“Dates”,
-“AI & ChatGPT”,
-“Internet History”,
-“Viral Videos”,
-“Jeddah”,
-“Riyadh”,
-“Makkah”,
-“Madinah”,
-“Anime”,
-“Studio Ghibli”,
-“Chess”,
-“Formula E”
+"Islamic",
+"Quran",
+"Western Music",
+"Khaleji Music",
+"Medicine",
+"Nerds",
+"Girls Interests",
+"Handbag",
+"Makeup",
+"Brands",
+"Perfume",
+"Cars",
+"Soccer",
+"Sports",
+"Trends",
+"Disney",
+"Marvel",
+"English Language and Literature",
+"Arabic Language and Literature",
+"Supermarket",
+"Movies",
+"Shahid",
+"Disney+",
+"Netflix",
+"Flags",
+"Languages",
+"General Knowledge",
+"Saudi History",
+"One Piece",
+"Capital Cities",
+"Math",
+"Technology",
+"Animals",
+"Logos",
+"Flowers",
+"Sea Animals",
+"TikTok",
+"Memes",
+"Drinks",
+"Restaurants",
+"History",
+"Geography",
+"Video Games",
+"Space",
+"Books",
+"Foods",
+"Desserts",
+"Fast Foods",
+"Inventors",
+"Landmarks",
+"Physics",
+"Chemistry",
+"Biology",
+"World History",
+"Brain Teasers",
+"Football Players",
+"Basketball",
+"Formula 1",
+"Harry Potter",
+"Pokémon",
+"Minecraft",
+"Roblox",
+"Star Wars",
+"Pixar",
+"DreamWorks",
+"Programming and Coding",
+"Red Sea Mall",
+"Dates",
+"AI & ChatGPT",
+"Internet History",
+"Viral Videos",
+"Jeddah",
+"Riyadh",
+"Makkah",
+"Madinah",
+"Anime",
+"Studio Ghibli",
+"Chess",
+"Formula E"
 ];
 
 let scores = {};
@@ -331,9 +331,9 @@ categories.forEach(category => {
 }
 
 document.getElementById(
-“categoryContinue”
+"categoryContinue"
 ).addEventListener(
-“click”,
+"click",
 () => {
 
 const selected =
